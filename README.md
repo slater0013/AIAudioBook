@@ -19,10 +19,11 @@ Lecteur EPUB natif pour macOS avec lecture à voix haute et assistance IA, enti�
 - **Signets** : ajout/suppression en un clic, liste avec navigation directe
 
 ### Lecture à voix haute (TTS)
-- Moteur natif macOS (AVSpeechSynthesizer)
-- Surlignage mot à mot en temps réel (mode karaoké)
+- Moteur **Kokoro FastAPI** — voix haute qualité via serveur local (OpenAI-compatible)
+- Surlignage phrase par phrase en temps réel (mode karaoké)
+- Préchargement de la phrase suivante pendant la lecture (latence minimale)
 - Reprise depuis la position du curseur
-- Vitesse, voix et langue configurables
+- Vitesse (0,5×–2×), voix et URL du serveur configurables
 - Prétraitement intelligent : chiffres romains, abréviations, notes de bas de page éliminées
 
 ### Assistant IA
@@ -83,7 +84,11 @@ pip install kokoro-fastapi
 kokoro-fastapi serve
 ```
 
-> L'intégration Kokoro dans AIudioBook est en cours de développement (voir feuille de route). Une fois disponible, il suffira de renseigner l'adresse `http://localhost:8880` dans les préférences TTS de l'application.
+### Configuration dans AIudioBook
+
+Dans la barre d'outils du lecteur → icône **haut-parleur** → champ **TTS Server** → entrez l'adresse du serveur (par défaut `http://localhost:8880`).
+
+Vous pouvez ensuite choisir la voix et la vitesse dans le même panneau. La lecture démarre dès que le serveur répond ; chaque phrase est préchargée à l'avance pour éliminer les silences entre les phrases.
 
 ## Architecture
 
@@ -99,7 +104,6 @@ ZIPFoundation/               ← dépendance locale (décompression EPUB)
 
 ## Feuille de route
 
-- [ ] Intégration Kokoro FastAPI (voix TTS haute qualité via serveur local)
 - [ ] Règles de substitution TTS personnalisables (abréviations bibliques, médicales…)
 - [ ] RAG complet (NLEmbedding + recherche vectorielle) pour l'assistant IA
 - [ ] Surlignage de texte permanent
