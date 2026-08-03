@@ -59,11 +59,7 @@ Puis **Product › Run** dans Xcode (⌘R).
 
 Par défaut, AIudioBook utilise les voix natives macOS (AVSpeechSynthesizer). Pour une voix nettement plus naturelle, vous pouvez connecter le serveur **Kokoro FastAPI** qui tourne localement sur votre machine.
 
-### Prérequis
-
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/) installé et lancé
-
-### Lancement du serveur Kokoro
+### Option A — Docker (recommandé)
 
 **CPU (compatible tous Mac) :**
 ```bash
@@ -75,14 +71,16 @@ docker run -p 8880:8880 ghcr.io/remsky/kokoro-fastapi-cpu:v0.2.1
 docker run -p 8880:8880 ghcr.io/remsky/kokoro-fastapi-mps:v0.2.1
 ```
 
-Le serveur est prêt quand le terminal affiche `Uvicorn running on http://0.0.0.0:8880`.
-
-### Alternative : installation pip
+### Option B — depuis les sources
 
 ```bash
-pip install kokoro-fastapi
-kokoro-fastapi serve
+git clone https://github.com/remsky/Kokoro-FastAPI
+cd Kokoro-FastAPI
+./start-gpu_mac.sh       # Apple Silicon
+# ./start-cpu.sh         # Intel
 ```
+
+Le serveur est prêt quand le terminal affiche `Uvicorn running on http://0.0.0.0:8880`.
 
 ### Configuration dans AIudioBook
 
