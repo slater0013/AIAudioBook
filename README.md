@@ -37,15 +37,53 @@ Lecteur EPUB natif pour macOS avec lecture à voix haute et assistance IA, enti�
 
 ## Installation
 
+### Télécharger le DMG (recommandé)
+
+1. Allez dans la section [**Releases**](https://github.com/slater0013/AIAudioBook/releases) du dépôt
+2. Téléchargez `AIudioBook-vX.X.X.dmg`
+3. Ouvrez le DMG, faites glisser **AIudioBook** vers le dossier **Applications**
+4. Au premier lancement : clic droit → **Ouvrir** (nécessaire car l'app n'est pas encore signée Apple)
+
 ### Depuis les sources
 
 ```bash
-git clone https://github.com/<votre-compte>/AIudioBook.git
-cd AIudioBook
+git clone https://github.com/slater0013/AIAudioBook.git
+cd AIAudioBook
 open AIudioBook.xcodeproj
 ```
 
 Puis **Product › Run** dans Xcode (⌘R).
+
+## TTS haute qualité — Kokoro FastAPI (optionnel)
+
+Par défaut, AIudioBook utilise les voix natives macOS (AVSpeechSynthesizer). Pour une voix nettement plus naturelle, vous pouvez connecter le serveur **Kokoro FastAPI** qui tourne localement sur votre machine.
+
+### Prérequis
+
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) installé et lancé
+
+### Lancement du serveur Kokoro
+
+**CPU (compatible tous Mac) :**
+```bash
+docker run -p 8880:8880 ghcr.io/remsky/kokoro-fastapi-cpu:v0.2.1
+```
+
+**GPU Apple Silicon (M1/M2/M3/M4, plus rapide) :**
+```bash
+docker run -p 8880:8880 ghcr.io/remsky/kokoro-fastapi-mps:v0.2.1
+```
+
+Le serveur est prêt quand le terminal affiche `Uvicorn running on http://0.0.0.0:8880`.
+
+### Alternative : installation pip
+
+```bash
+pip install kokoro-fastapi
+kokoro-fastapi serve
+```
+
+> L'intégration Kokoro dans AIudioBook est en cours de développement (voir feuille de route). Une fois disponible, il suffira de renseigner l'adresse `http://localhost:8880` dans les préférences TTS de l'application.
 
 ## Architecture
 
@@ -61,6 +99,7 @@ ZIPFoundation/               ← dépendance locale (décompression EPUB)
 
 ## Feuille de route
 
+- [ ] Intégration Kokoro FastAPI (voix TTS haute qualité via serveur local)
 - [ ] Règles de substitution TTS personnalisables (abréviations bibliques, médicales…)
 - [ ] RAG complet (NLEmbedding + recherche vectorielle) pour l'assistant IA
 - [ ] Surlignage de texte permanent
