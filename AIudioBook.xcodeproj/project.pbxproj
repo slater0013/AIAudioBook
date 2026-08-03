@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		29F56CCC300AE4AD00A5C5D1 /* EPUBKit in Frameworks */ = {isa = PBXBuildFile; productRef = 29F56CCB300AE4AD00A5C5D1 /* EPUBKit */; };
+		29F77FD8300C1E35008417F4 /* AIudioBookFeatures in Frameworks */ = {isa = PBXBuildFile; productRef = 29F77FD7300C1E35008417F4 /* AIudioBookFeatures */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		29F56CBC300AD0BB00A5C5D1 /* AIudioBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AIudioBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -23,6 +28,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29F56CCC300AE4AD00A5C5D1 /* EPUBKit in Frameworks */,
+				29F77FD8300C1E35008417F4 /* AIudioBookFeatures in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -33,6 +40,7 @@
 			isa = PBXGroup;
 			children = (
 				29F56CBE300AD0BB00A5C5D1 /* AIudioBook */,
+				29F77FD6300C1E35008417F4 /* Frameworks */,
 				29F56CBD300AD0BB00A5C5D1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +51,13 @@
 				29F56CBC300AD0BB00A5C5D1 /* AIudioBook.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		29F77FD6300C1E35008417F4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -65,6 +80,8 @@
 			);
 			name = AIudioBook;
 			packageProductDependencies = (
+				29F56CCB300AE4AD00A5C5D1 /* EPUBKit */,
+				29F77FD7300C1E35008417F4 /* AIudioBookFeatures */,
 			);
 			productName = AIudioBook;
 			productReference = 29F56CBC300AD0BB00A5C5D1 /* AIudioBook.app */;
@@ -86,14 +103,18 @@
 				};
 			};
 			buildConfigurationList = 29F56CB7300AD0BB00A5C5D1 /* Build configuration list for PBXProject "AIudioBook" */;
-			developmentRegion = en;
+			developmentRegion = fr;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = 29F56CB3300AD0BB00A5C5D1;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				29F56CCA300AE4AD00A5C5D1 /* XCLocalSwiftPackageReference "Packages/AIudioBookCore" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 29F56CBD300AD0BB00A5C5D1 /* Products */;
 			projectDirPath = "";
@@ -256,7 +277,17 @@
 				DEVELOPMENT_TEAM = GBZ93YQXB4;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -288,7 +319,17 @@
 				DEVELOPMENT_TEAM = GBZ93YQXB4;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -331,6 +372,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		29F56CCA300AE4AD00A5C5D1 /* XCLocalSwiftPackageReference "Packages/AIudioBookCore" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/AIudioBookCore;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		29F56CCB300AE4AD00A5C5D1 /* EPUBKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = EPUBKit;
+		};
+		29F77FD7300C1E35008417F4 /* AIudioBookFeatures */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 29F56CCA300AE4AD00A5C5D1 /* XCLocalSwiftPackageReference "Packages/AIudioBookCore" */;
+			productName = AIudioBookFeatures;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 29F56CB4300AD0BB00A5C5D1 /* Project object */;
 }
